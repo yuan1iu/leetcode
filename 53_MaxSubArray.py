@@ -20,6 +20,3 @@ class MaxSubArray:
             cur = max(nums[i] + cur, nums[i])
             maxArr = max(cur, maxArr)
         return maxArr
-
-
-print("123")
