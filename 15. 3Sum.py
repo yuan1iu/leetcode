@@ -23,3 +23,20 @@ class Solution:
                     l += 1
                     r -= 1
         return res
+
+    def threeSum_not_sorted(self, nums):
+        res = set()
+        dups = set()
+        for i in range(len(nums)):
+            if nums[i] in dups:
+                continue
+            dups.add(nums[i])
+
+            mapping = set()
+            for j in range(i+1, len(nums)):
+                target = -nums[i] - nums[j]
+                if target not in mapping:
+                    mapping.add(nums[j])
+                else:  # find solution
+                    res.add(tuple(sorted((nums[i], nums[j], target))))
+        return res
